@@ -1,38 +1,122 @@
-.App {
+/* .App {
   text-align: center;
-}
+} */
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+
+/*  */
+
+#heading{
+  background-color: #333;
+  width: 100%;
+  /* padding: 7rem; */
+  height: 65vh;
   color: white;
+  font-size: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 
-.App-link {
-  color: #61dafb;
+
+
+#count{
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  background-color:black;
+  color: white;
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 50%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.col{
+  margin: 0.5rem 0;
+}
+
+.card{
+  padding: 0 0.5rem;
+}
+
+s{
+  color: red;
+}
+
+/* cart */
+.cart-page{
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+  margin-top: 10vh;
+  margin-bottom: 1rem;
+  min-height: 100vh;
+}
+
+.cart-table{
+ /* border: 1px solid black; */
+ border-bottom: 1px solid #333;
+  /* margin: auto ; */
+  cursor: pointer;
+}
+
+td,th{
+ /* border: 1px solid black; */
+ padding: 10px;
+}
+
+th{
+ border-bottom: 1px solid #333;
+}
+
+.quantity-btn-group{
+  display: flex;
+  justify-content: space-evenly;
+}
+.image-cell{
+  height: 3rem;
+}
+
+.trash{
+  color: red;
+}
+
+.total-div{
+  background-color: yellowgreen;
+  padding: 10px;
+  margin: 3rem;
+}
+
+
+/* nav */
+#nav{
+  /* text-align: center; */
+  color: white;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  height: 10vh;
+  
+}
+
+.nav-item{
+  margin: 0 3rem;
+  /* border: 1px solid black; */
+  cursor: pointer;
+}
+.sub-nav{
+  display: flex;
+  /* border: 1px solid black; */
+
+}
+
+
+
+/* dashboard */
+.card-item{
+  margin: 1rem;
 }
