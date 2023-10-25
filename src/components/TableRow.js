@@ -46,7 +46,7 @@ function TableRow({productId, image, productName, price, initialQuantity, id, in
     }
 
     async function deleteItem(){
-        const res = await fetch('http://project1-backend-9whj.onrender.com/orders/delete',{
+        const res = await fetch('https://project1-backend-9whj.onrender.com/orders/delete',{
             method:'DELETE',
             headers: {
               'Content-Type':'application/json'
