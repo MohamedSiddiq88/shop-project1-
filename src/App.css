@@ -131,10 +131,8 @@ th{
 
 /* login */
 .login-card{
-  /* min-width: 400px; */
   max-width: 400px;
-margin: auto;
-  /* width: 400px; */
+  margin: auto;
 }
 
 .logo_with_name img{
