@@ -2,7 +2,14 @@
   text-align: center;
 } */
 
+/* cursor */
+.btn.btn-primary.loading-cursor {
+  cursor: progress;
+}
 
+.loading-cursor {
+  cursor: progress;
+}
 
 
 /*  */

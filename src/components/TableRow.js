@@ -5,9 +5,11 @@ function TableRow({productId, image, productName, price, initialQuantity, id, in
     const {fetchItemsData,totalItemPrice,setTotalItemPrice}= useContext(MyContext);
     const [quantity, setQuantity] = useState(initialQuantity);
     const [subTotal, setSubTotal] = useState(initialSubTotal);
+    const [loading, setLoading] = useState(false);
 
 
     async function quantityHandle(action){
+      setLoading(true);
         if(quantity!==1 || action!=="dec"){
             const newQuantity = action == 'inc' ? quantity + 1 : quantity - 1;
         const quantityDetail={
@@ -33,8 +35,9 @@ function TableRow({productId, image, productName, price, initialQuantity, id, in
         fetchItemsData();
     }
         }else{
-            deleteItem()
+          await  deleteItem()
         }
+      setLoading(false);
         
     }
 
@@ -46,6 +49,7 @@ function TableRow({productId, image, productName, price, initialQuantity, id, in
     }
 
     async function deleteItem(){
+      setLoading(true);
         const res = await fetch('https://project1-backend-9whj.onrender.com/orders/delete',{
             method:'DELETE',
             headers: {
@@ -59,6 +63,7 @@ function TableRow({productId, image, productName, price, initialQuantity, id, in
           if(res.ok){
             fetchItemsData();
           }
+          setLoading(false); 
     }
 
 
@@ -72,7 +77,7 @@ function TableRow({productId, image, productName, price, initialQuantity, id, in
         <p>{productName}</p>
       </td>
       <td>
-        <div className='quantity-btn-group'>
+        <div className={`quantity-btn-group ${loading ? 'loading-cursor' : ''}`}>
         <div  onClick={()=>quantityHandle("dec")}>-</div>
         <p>{quantity}</p>
         <div  onClick={()=>quantityHandle("inc")}>+</div>
@@ -83,7 +88,9 @@ function TableRow({productId, image, productName, price, initialQuantity, id, in
       <p>{formattedCurrency(subTotal)}</p>
       </td>
       <td>
-      <i class="fa-solid fa-trash trash" onClick={()=>deleteItem()}></i>
+      <i className={`fa-solid fa-trash trash ${loading ? 'loading-cursor' : ''}`}
+  onClick={() => deleteItem()}></i>
+
       </td>
     </tr>
   )
