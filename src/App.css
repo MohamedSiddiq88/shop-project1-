@@ -127,3 +127,30 @@ th{
 .card-item{
   margin: 1rem;
 }
+
+
+/* login */
+.login-card{
+  /* min-width: 400px; */
+  max-width: 400px;
+margin: auto;
+  /* width: 400px; */
+}
+
+.logo_with_name img{
+ height: 2rem;
+ width: 2rem;
+ /* border: 2px black solid;  */
+}
+
+.logo_with_name p{
+  font-size: large;
+  font-weight: bolder;
+  color: #333;
+}
+
+.logo_with_name{
+  display: flex;
+  justify-content: center;
+  /* background-color: #333; */
+}

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import cartImage from './pngimg.com - shopping_cart_PNG42.png';
+
 
 function Login() {
   const navigate = useNavigate();
@@ -41,7 +43,11 @@ function Login() {
     <div className="container mt-5 login_container">
       <div className="row">
         <div className="col-md-6 mx-auto">
-          <div className="card">
+          <div className='logo_with_name'>
+          <img src={cartImage} alt="cart"/>
+          <p>E-commerce Platform</p>
+          </div>
+          <div className="card login-card">
             <div className="card-body">
               <div>
                 <h5 className="card-title">User Login</h5>
