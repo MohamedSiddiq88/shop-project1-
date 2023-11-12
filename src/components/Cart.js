@@ -31,7 +31,7 @@ function formattedCurrency(number){
           </th>
           <th>
           Sub Total            
-            </th>
+          </th>
           <th>
           Action            
             </th>
