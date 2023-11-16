@@ -25,7 +25,7 @@ function Context({children}) {
     // setCount((pre)=>pre=totalQuantity)
     // setTotalItemPrice((pre)=>pre=totalPrice)
 
-    console.log("simple",restult.data);
+    // console.log("simple",restult.data);
     return restult.data;
   }
 

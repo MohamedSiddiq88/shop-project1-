@@ -21,7 +21,7 @@ function formattedCurrency(number){
 }
 
 useEffect(()=>{
-  console.log("simple cart",cartItems)
+  // console.log("simple cart",cartItems)
   setCartItems(cartItems)
 },[cartItems])
   return (
