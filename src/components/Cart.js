@@ -6,7 +6,12 @@ import TableRow from './TableRow'
 function Cart() {
   const {cartItems,setCartItems, fetchItemsData, totalItemPrice} =useContext(MyContext)
   useEffect(()=>{
-    fetchItemsData();
+    async function callIt(){
+      let result = await fetchItemsData();
+      setCartItems(result)
+       console.log("cart Items: ", await cartItems);
+    }
+    callIt();
 },[])
 function formattedCurrency(number){
   return number.toLocaleString('en-IN', {
@@ -14,6 +19,11 @@ function formattedCurrency(number){
     currency: 'INR',
   });
 }
+
+useEffect(()=>{
+  console.log("simple cart",cartItems)
+  setCartItems(cartItems)
+},[cartItems])
   return (
     
       <MainPage>

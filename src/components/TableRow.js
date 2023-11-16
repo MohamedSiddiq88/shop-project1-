@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { MyContext } from '../context/Context';
 
 function TableRow({productId, image, productName, price, initialQuantity, id, initialSubTotal}) {
-    const {fetchItemsData,totalItemPrice,setTotalItemPrice}= useContext(MyContext);
+    const {fetchItemsData,totalItemPrice,setTotalItemPrice,cartItems}= useContext(MyContext);
     const [quantity, setQuantity] = useState(initialQuantity);
     const [subTotal, setSubTotal] = useState(initialSubTotal);
     const [loading, setLoading] = useState(false);
@@ -32,7 +32,7 @@ function TableRow({productId, image, productName, price, initialQuantity, id, in
     if(res.ok){
         setQuantity(newQuantity);
         setSubTotal(newQuantity*price);
-        fetchItemsData();
+        await fetchItemsData();
     }
         }else{
           await  deleteItem()
@@ -61,12 +61,17 @@ function TableRow({productId, image, productName, price, initialQuantity, id, in
             
           }); 
           if(res.ok){
-            fetchItemsData();
+            await fetchItemsData();
+            console.log(`fetchedItem  ${initialQuantity}  ${initialSubTotal} `)
           }
           setLoading(false); 
     }
 
-
+useEffect(()=>{
+  setQuantity(initialQuantity);
+  setSubTotal(price*initialQuantity)
+// console.log("cartItems", productName, initialQuantity, quantity, price*initialQuantity, subTotal)
+},[cartItems])
 
     return (
     <tr>

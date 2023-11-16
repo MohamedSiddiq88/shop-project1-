@@ -13,18 +13,35 @@ function Context({children}) {
     });
     const restult= await res.json()
     setCartItems((pre)=>pre=restult.data);
-    const totalQuantity = restult.data.reduce((accumulator, currentItem) => {
-      return accumulator + currentItem.quantity;
+    // const totalQuantity = restult.data.reduce((accumulator, currentItem) => {
+    //   return accumulator + currentItem.quantity;
     
-    }, 0);
-    const totalPrice = restult.data.reduce((accumulator, currentItem) => {
-      return accumulator + currentItem.subTotal;
+    // }, 0);
+    // const totalPrice = restult.data.reduce((accumulator, currentItem) => {
+    //   return accumulator + currentItem.subTotal;
     
-    }, 0);
+    // }, 0);
 
-    setCount((pre)=>pre=totalQuantity)
-    setTotalItemPrice((pre)=>pre=totalPrice)
+    // setCount((pre)=>pre=totalQuantity)
+    // setTotalItemPrice((pre)=>pre=totalPrice)
+
+    console.log("simple",restult.data);
+    return restult.data;
   }
+
+  useEffect(() => {
+    const totalQuantity = cartItems.reduce((accumulator, currentItem) => {
+      return accumulator + currentItem.quantity;
+    }, 0);
+  
+    const totalPrice = cartItems.reduce((accumulator, currentItem) => {
+      return accumulator + currentItem.subTotal;
+    }, 0);
+  
+    setCount(totalQuantity);
+    setTotalItemPrice(totalPrice);
+    console.log(cartItems)
+  }, [cartItems]);
 
   useEffect(()=>{
      
