@@ -9,7 +9,7 @@ function Cart() {
     async function callIt(){
       let result = await fetchItemsData();
       setCartItems(result)
-       console.log("cart Items: ", await cartItems);
+      //  console.log("cart Items: ", await cartItems);
     }
     callIt();
 },[])

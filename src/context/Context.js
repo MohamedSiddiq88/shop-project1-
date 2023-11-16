@@ -40,7 +40,7 @@ function Context({children}) {
   
     setCount(totalQuantity);
     setTotalItemPrice(totalPrice);
-    console.log(cartItems)
+    // console.log(cartItems)
   }, [cartItems]);
 
   useEffect(()=>{
